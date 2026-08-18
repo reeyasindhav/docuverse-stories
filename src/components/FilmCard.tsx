@@ -1,5 +1,6 @@
 import { Link } from "@tanstack/react-router";
 import { Bookmark } from "lucide-react";
+import { toast } from "sonner";
 import type { Film } from "@/lib/data";
 import { useStore } from "@/lib/store";
 import { cn } from "@/lib/utils";
@@ -32,7 +33,9 @@ export function FilmCard({ film, tall = false }: { film: Film; tall?: boolean })
       <button
         onClick={(e) => {
           e.preventDefault();
+          const willSave = !saved;
           toggleSave(film.slug);
+          toast.success(willSave ? `Saved "${film.title}" to watchlist` : `Removed "${film.title}" from watchlist`);
         }}
         aria-label={saved ? `Remove ${film.title} from watchlist` : `Save ${film.title}`}
         className={cn(

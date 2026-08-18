@@ -10,33 +10,271 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as AboutRouteImport } from './routes/about'
+import { Route as BrowseRouteImport } from './routes/browse'
+import { Route as ContactRouteImport } from './routes/contact'
+import { Route as DashboardRouteImport } from './routes/dashboard'
+import { Route as FaqRouteImport } from './routes/faq'
+import { Route as LoginRouteImport } from './routes/login'
+import { Route as PrivacyRouteImport } from './routes/privacy'
+import { Route as SettingsRouteImport } from './routes/settings'
+import { Route as SignupRouteImport } from './routes/signup'
+import { Route as TermsRouteImport } from './routes/terms'
+import { Route as FilmSlugRouteImport } from './routes/film.$slug'
+import { Route as FilmmakersIndexRouteImport } from './routes/filmmakers.index'
+import { Route as FilmmakersSlugRouteImport } from './routes/filmmakers.$slug'
+import { Route as TopicsIndexRouteImport } from './routes/topics.index'
+import { Route as TopicsSlugRouteImport } from './routes/topics.$slug'
+import { Route as WatchSlugRouteImport } from './routes/watch.$slug'
+import { Route as WatchlistsIndexRouteImport } from './routes/watchlists.index'
+import { Route as WatchlistsSlugRouteImport } from './routes/watchlists.$slug'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AboutRoute = AboutRouteImport.update({
+  id: '/about',
+  path: '/about',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const BrowseRoute = BrowseRouteImport.update({
+  id: '/browse',
+  path: '/browse',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ContactRoute = ContactRouteImport.update({
+  id: '/contact',
+  path: '/contact',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DashboardRoute = DashboardRouteImport.update({
+  id: '/dashboard',
+  path: '/dashboard',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const FaqRoute = FaqRouteImport.update({
+  id: '/faq',
+  path: '/faq',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const LoginRoute = LoginRouteImport.update({
+  id: '/login',
+  path: '/login',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PrivacyRoute = PrivacyRouteImport.update({
+  id: '/privacy',
+  path: '/privacy',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SettingsRoute = SettingsRouteImport.update({
+  id: '/settings',
+  path: '/settings',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SignupRoute = SignupRouteImport.update({
+  id: '/signup',
+  path: '/signup',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const TermsRoute = TermsRouteImport.update({
+  id: '/terms',
+  path: '/terms',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const FilmSlugRoute = FilmSlugRouteImport.update({
+  id: '/film/$slug',
+  path: '/film/$slug',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const FilmmakersIndexRoute = FilmmakersIndexRouteImport.update({
+  id: '/filmmakers/',
+  path: '/filmmakers/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const FilmmakersSlugRoute = FilmmakersSlugRouteImport.update({
+  id: '/filmmakers/$slug',
+  path: '/filmmakers/$slug',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const TopicsIndexRoute = TopicsIndexRouteImport.update({
+  id: '/topics/',
+  path: '/topics/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const TopicsSlugRoute = TopicsSlugRouteImport.update({
+  id: '/topics/$slug',
+  path: '/topics/$slug',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const WatchSlugRoute = WatchSlugRouteImport.update({
+  id: '/watch/$slug',
+  path: '/watch/$slug',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const WatchlistsIndexRoute = WatchlistsIndexRouteImport.update({
+  id: '/watchlists/',
+  path: '/watchlists/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const WatchlistsSlugRoute = WatchlistsSlugRouteImport.update({
+  id: '/watchlists/$slug',
+  path: '/watchlists/$slug',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
+  '/browse': typeof BrowseRoute
+  '/contact': typeof ContactRoute
+  '/dashboard': typeof DashboardRoute
+  '/faq': typeof FaqRoute
+  '/login': typeof LoginRoute
+  '/privacy': typeof PrivacyRoute
+  '/settings': typeof SettingsRoute
+  '/signup': typeof SignupRoute
+  '/terms': typeof TermsRoute
+  '/film/$slug': typeof FilmSlugRoute
+  '/filmmakers/$slug': typeof FilmmakersSlugRoute
+  '/topics/$slug': typeof TopicsSlugRoute
+  '/watch/$slug': typeof WatchSlugRoute
+  '/watchlists/$slug': typeof WatchlistsSlugRoute
+  '/filmmakers/': typeof FilmmakersIndexRoute
+  '/topics/': typeof TopicsIndexRoute
+  '/watchlists/': typeof WatchlistsIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
+  '/browse': typeof BrowseRoute
+  '/contact': typeof ContactRoute
+  '/dashboard': typeof DashboardRoute
+  '/faq': typeof FaqRoute
+  '/login': typeof LoginRoute
+  '/privacy': typeof PrivacyRoute
+  '/settings': typeof SettingsRoute
+  '/signup': typeof SignupRoute
+  '/terms': typeof TermsRoute
+  '/film/$slug': typeof FilmSlugRoute
+  '/filmmakers/$slug': typeof FilmmakersSlugRoute
+  '/topics/$slug': typeof TopicsSlugRoute
+  '/watch/$slug': typeof WatchSlugRoute
+  '/watchlists/$slug': typeof WatchlistsSlugRoute
+  '/filmmakers': typeof FilmmakersIndexRoute
+  '/topics': typeof TopicsIndexRoute
+  '/watchlists': typeof WatchlistsIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
+  '/browse': typeof BrowseRoute
+  '/contact': typeof ContactRoute
+  '/dashboard': typeof DashboardRoute
+  '/faq': typeof FaqRoute
+  '/login': typeof LoginRoute
+  '/privacy': typeof PrivacyRoute
+  '/settings': typeof SettingsRoute
+  '/signup': typeof SignupRoute
+  '/terms': typeof TermsRoute
+  '/film/$slug': typeof FilmSlugRoute
+  '/filmmakers/$slug': typeof FilmmakersSlugRoute
+  '/topics/$slug': typeof TopicsSlugRoute
+  '/watch/$slug': typeof WatchSlugRoute
+  '/watchlists/$slug': typeof WatchlistsSlugRoute
+  '/filmmakers/': typeof FilmmakersIndexRoute
+  '/topics/': typeof TopicsIndexRoute
+  '/watchlists/': typeof WatchlistsIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/about'
+    | '/browse'
+    | '/contact'
+    | '/dashboard'
+    | '/faq'
+    | '/login'
+    | '/privacy'
+    | '/settings'
+    | '/signup'
+    | '/terms'
+    | '/film/$slug'
+    | '/filmmakers/$slug'
+    | '/topics/$slug'
+    | '/watch/$slug'
+    | '/watchlists/$slug'
+    | '/filmmakers/'
+    | '/topics/'
+    | '/watchlists/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/'
+    | '/about'
+    | '/browse'
+    | '/contact'
+    | '/dashboard'
+    | '/faq'
+    | '/login'
+    | '/privacy'
+    | '/settings'
+    | '/signup'
+    | '/terms'
+    | '/film/$slug'
+    | '/filmmakers/$slug'
+    | '/topics/$slug'
+    | '/watch/$slug'
+    | '/watchlists/$slug'
+    | '/filmmakers'
+    | '/topics'
+    | '/watchlists'
+  id:
+    | '__root__'
+    | '/'
+    | '/about'
+    | '/browse'
+    | '/contact'
+    | '/dashboard'
+    | '/faq'
+    | '/login'
+    | '/privacy'
+    | '/settings'
+    | '/signup'
+    | '/terms'
+    | '/film/$slug'
+    | '/filmmakers/$slug'
+    | '/topics/$slug'
+    | '/watch/$slug'
+    | '/watchlists/$slug'
+    | '/filmmakers/'
+    | '/topics/'
+    | '/watchlists/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AboutRoute: typeof AboutRoute
+  BrowseRoute: typeof BrowseRoute
+  ContactRoute: typeof ContactRoute
+  DashboardRoute: typeof DashboardRoute
+  FaqRoute: typeof FaqRoute
+  LoginRoute: typeof LoginRoute
+  PrivacyRoute: typeof PrivacyRoute
+  SettingsRoute: typeof SettingsRoute
+  SignupRoute: typeof SignupRoute
+  TermsRoute: typeof TermsRoute
+  FilmSlugRoute: typeof FilmSlugRoute
+  FilmmakersSlugRoute: typeof FilmmakersSlugRoute
+  TopicsSlugRoute: typeof TopicsSlugRoute
+  WatchSlugRoute: typeof WatchSlugRoute
+  WatchlistsSlugRoute: typeof WatchlistsSlugRoute
+  FilmmakersIndexRoute: typeof FilmmakersIndexRoute
+  TopicsIndexRoute: typeof TopicsIndexRoute
+  WatchlistsIndexRoute: typeof WatchlistsIndexRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -48,11 +286,155 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/about': {
+      id: '/about'
+      path: '/about'
+      fullPath: '/about'
+      preLoaderRoute: typeof AboutRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/browse': {
+      id: '/browse'
+      path: '/browse'
+      fullPath: '/browse'
+      preLoaderRoute: typeof BrowseRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/contact': {
+      id: '/contact'
+      path: '/contact'
+      fullPath: '/contact'
+      preLoaderRoute: typeof ContactRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/dashboard': {
+      id: '/dashboard'
+      path: '/dashboard'
+      fullPath: '/dashboard'
+      preLoaderRoute: typeof DashboardRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/faq': {
+      id: '/faq'
+      path: '/faq'
+      fullPath: '/faq'
+      preLoaderRoute: typeof FaqRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/login': {
+      id: '/login'
+      path: '/login'
+      fullPath: '/login'
+      preLoaderRoute: typeof LoginRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/privacy': {
+      id: '/privacy'
+      path: '/privacy'
+      fullPath: '/privacy'
+      preLoaderRoute: typeof PrivacyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/settings': {
+      id: '/settings'
+      path: '/settings'
+      fullPath: '/settings'
+      preLoaderRoute: typeof SettingsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/signup': {
+      id: '/signup'
+      path: '/signup'
+      fullPath: '/signup'
+      preLoaderRoute: typeof SignupRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/terms': {
+      id: '/terms'
+      path: '/terms'
+      fullPath: '/terms'
+      preLoaderRoute: typeof TermsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/film/$slug': {
+      id: '/film/$slug'
+      path: '/film/$slug'
+      fullPath: '/film/$slug'
+      preLoaderRoute: typeof FilmSlugRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/filmmakers/': {
+      id: '/filmmakers/'
+      path: '/filmmakers'
+      fullPath: '/filmmakers/'
+      preLoaderRoute: typeof FilmmakersIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/filmmakers/$slug': {
+      id: '/filmmakers/$slug'
+      path: '/filmmakers/$slug'
+      fullPath: '/filmmakers/$slug'
+      preLoaderRoute: typeof FilmmakersSlugRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/topics/': {
+      id: '/topics/'
+      path: '/topics'
+      fullPath: '/topics/'
+      preLoaderRoute: typeof TopicsIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/topics/$slug': {
+      id: '/topics/$slug'
+      path: '/topics/$slug'
+      fullPath: '/topics/$slug'
+      preLoaderRoute: typeof TopicsSlugRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/watch/$slug': {
+      id: '/watch/$slug'
+      path: '/watch/$slug'
+      fullPath: '/watch/$slug'
+      preLoaderRoute: typeof WatchSlugRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/watchlists/': {
+      id: '/watchlists/'
+      path: '/watchlists'
+      fullPath: '/watchlists/'
+      preLoaderRoute: typeof WatchlistsIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/watchlists/$slug': {
+      id: '/watchlists/$slug'
+      path: '/watchlists/$slug'
+      fullPath: '/watchlists/$slug'
+      preLoaderRoute: typeof WatchlistsSlugRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AboutRoute: AboutRoute,
+  BrowseRoute: BrowseRoute,
+  ContactRoute: ContactRoute,
+  DashboardRoute: DashboardRoute,
+  FaqRoute: FaqRoute,
+  LoginRoute: LoginRoute,
+  PrivacyRoute: PrivacyRoute,
+  SettingsRoute: SettingsRoute,
+  SignupRoute: SignupRoute,
+  TermsRoute: TermsRoute,
+  FilmSlugRoute: FilmSlugRoute,
+  FilmmakersSlugRoute: FilmmakersSlugRoute,
+  TopicsSlugRoute: TopicsSlugRoute,
+  WatchSlugRoute: WatchSlugRoute,
+  WatchlistsSlugRoute: WatchlistsSlugRoute,
+  FilmmakersIndexRoute: FilmmakersIndexRoute,
+  TopicsIndexRoute: TopicsIndexRoute,
+  WatchlistsIndexRoute: WatchlistsIndexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

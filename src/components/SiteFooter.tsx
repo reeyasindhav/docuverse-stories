@@ -10,11 +10,17 @@ export function SiteFooter() {
           <Link to="/about" className="label-mono rule-link text-muted-foreground hover:text-foreground">
             About
           </Link>
-          <Link to="/filmmakers" className="label-mono rule-link text-muted-foreground hover:text-foreground">
-            Filmmakers
+          <Link to="/faq" className="label-mono rule-link text-muted-foreground hover:text-foreground">
+            FAQ
           </Link>
-          <Link to="/watchlists" className="label-mono rule-link text-muted-foreground hover:text-foreground">
-            Journal
+          <Link to="/contact" className="label-mono rule-link text-muted-foreground hover:text-foreground">
+            Contact
+          </Link>
+          <Link to="/privacy" className="label-mono rule-link text-muted-foreground hover:text-foreground">
+            Privacy
+          </Link>
+          <Link to="/terms" className="label-mono rule-link text-muted-foreground hover:text-foreground">
+            Terms
           </Link>
         </nav>
       </div>

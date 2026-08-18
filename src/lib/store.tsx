@@ -2,17 +2,34 @@ import { createContext, useCallback, useContext, useEffect, useMemo, useState, t
 
 export type User = { name: string; email: string };
 type Progress = Record<string, { chapter: number; percent: number; updatedAt: number }>;
+type Settings = {
+  autoplayNext: boolean;
+  defaultQuality: string;
+  notifyWatchlist: boolean;
+  notifyNewFilms: boolean;
+  reducedMotion: boolean;
+};
+
+const defaultSettings: Settings = {
+  autoplayNext: true,
+  defaultQuality: "auto",
+  notifyWatchlist: true,
+  notifyNewFilms: false,
+  reducedMotion: false,
+};
 
 type Store = {
   ready: boolean;
   user: User | null;
   saved: string[];
   progress: Progress;
+  settings: Settings;
   signIn: (email: string, name?: string) => void;
   signOut: () => void;
   toggleSave: (slug: string) => void;
   isSaved: (slug: string) => boolean;
   setProgress: (slug: string, chapter: number, percent: number) => void;
+  updateSettings: (patch: Partial<Settings>) => void;
 };
 
 const KEY = "docuverse.state.v1";
@@ -23,6 +40,7 @@ export function StoreProvider({ children }: { children: ReactNode }) {
   const [user, setUser] = useState<User | null>(null);
   const [saved, setSaved] = useState<string[]>([]);
   const [progress, setProgressState] = useState<Progress>({});
+  const [settings, setSettings] = useState<Settings>(defaultSettings);
 
   useEffect(() => {
     try {
@@ -32,6 +50,9 @@ export function StoreProvider({ children }: { children: ReactNode }) {
         setUser(parsed.user ?? null);
         setSaved(parsed.saved ?? []);
         setProgressState(parsed.progress ?? {});
+        if (parsed.settings) {
+          setSettings({ ...defaultSettings, ...parsed.settings });
+        }
       }
     } catch {
       /* ignore */
@@ -41,8 +62,8 @@ export function StoreProvider({ children }: { children: ReactNode }) {
 
   useEffect(() => {
     if (!ready) return;
-    localStorage.setItem(KEY, JSON.stringify({ user, saved, progress }));
-  }, [ready, user, saved, progress]);
+    localStorage.setItem(KEY, JSON.stringify({ user, saved, progress, settings }));
+  }, [ready, user, saved, progress, settings]);
 
   const signIn = useCallback((email: string, name?: string) => {
     const fallback = (email.split("@")[0] ?? "viewer").replace(/[._-]/g, " ");
@@ -59,19 +80,25 @@ export function StoreProvider({ children }: { children: ReactNode }) {
     setProgressState((p) => ({ ...p, [slug]: { chapter, percent, updatedAt: Date.now() } }));
   }, []);
 
+  const updateSettings = useCallback((patch: Partial<Settings>) => {
+    setSettings((s) => ({ ...s, ...patch }));
+  }, []);
+
   const value = useMemo<Store>(
     () => ({
       ready,
       user,
       saved,
       progress,
+      settings,
       signIn,
       signOut,
       toggleSave,
       isSaved: (slug: string) => saved.includes(slug),
       setProgress,
+      updateSettings,
     }),
-    [ready, user, saved, progress, signIn, signOut, toggleSave, setProgress],
+    [ready, user, saved, progress, settings, signIn, signOut, toggleSave, setProgress, updateSettings],
   );
 
   return <Ctx.Provider value={value}>{children}</Ctx.Provider>;
