@@ -119,19 +119,20 @@ function WatchPage() {
             <div className="flex items-center gap-2">
               <button
                 type="button"
+                onClick={handleStop}
+                className="flex h-10 w-10 items-center justify-center rounded-full bg-background text-foreground transition-colors hover:bg-muted"
+                aria-label="Close tab"
+              >
+                <X className="h-4 w-4" />
+              </button>
+              <button
+                type="button"
                 onClick={() => setMinimized((m) => !m)}
                 className="flex h-10 w-10 items-center justify-center rounded-full bg-background text-foreground transition-colors hover:bg-muted"
+                aria-label={minimized ? "Expand" : "Minimize"}
               >
-                <Maximize className="h-4 w-4" />
+                {minimized ? <Maximize className="h-4 w-4" /> : <Maximize className="h-4 w-4 rotate-45" />}
               </button>
-              <Link
-                to="/film/$slug"
-                params={{ slug: film.slug }}
-                onClick={clearTimer}
-                className="flex h-10 w-10 items-center justify-center rounded-full bg-background text-foreground transition-colors hover:bg-muted"
-              >
-                <ArrowLeft className="h-4 w-4" />
-              </Link>
             </div>
           </div>
           {!minimized && (
