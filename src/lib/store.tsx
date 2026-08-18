@@ -45,7 +45,8 @@ export function StoreProvider({ children }: { children: ReactNode }) {
   }, [ready, user, saved, progress]);
 
   const signIn = useCallback((email: string, name?: string) => {
-    setUser({ email, name: name || email.split("@")[0].replace(/[._-]/g, " ") });
+    const fallback = (email.split("@")[0] ?? "viewer").replace(/[._-]/g, " ");
+    setUser({ email, name: name || fallback });
   }, []);
 
   const signOut = useCallback(() => setUser(null), []);
